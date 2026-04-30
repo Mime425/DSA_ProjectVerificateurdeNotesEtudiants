@@ -6,31 +6,34 @@ using System.Threading.Tasks;
 
 namespace DSA_Projet_VérificateurDeNotesÉtudiants
 {
-    // pré-condition : le tableau n'est pas vide
-    //post-condition: cela retourne min et max
-    //complexité : 0(n)
-    public static double[] findMinMax(Etudiant[] students, int count)
+    public static class FindMinMax
     {
-        double minValue = double.MaxValue;
-        double maxValue = double.MinValue;
-
-        for (int i = 0;
-            i < count;
-            i++)
+        // pré-condition : le tableau n'est pas vide
+        //post-condition: cela retourne min et max
+        //complexité : 0(n)
+        public static double[] findMinMax(Etudiant[] students, int count)
         {
-            double grade = students[i].GetnoteFinal();
+            double minValue = double.MaxValue;
+            double maxValue = double.MinValue;
 
-            if (grade < minValue)
+            for (int i = 0;
+                i < count;
+                i++)
             {
-                minValue = grade;
-            }
+                double grade = students[i].getNoteFinal();
 
-            if (grade > maxValue)
-            {
-                maxValue = grade;
+                if (grade < minValue)
+                {
+                    minValue = grade;
+                }
 
+                if (grade > maxValue)
+                {
+                    maxValue = grade;
+
+                }
             }
+            return new double[] { minValue, maxValue };
         }
-        return new double[] { minValue, maxValue }; 
     }
 }
