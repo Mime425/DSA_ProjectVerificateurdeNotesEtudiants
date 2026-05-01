@@ -63,19 +63,19 @@ namespace DSA_Projet_VérificateurDeNotesÉtudiants
         public double CalculMoyenneClasse()
         {
             double somme = 0;
-            int count = liste.GetCount();
+            int count = liste.getCount();
 
             if (count == 0)
             {
                 throw new ArgumentException("Il n'y a pas d'étudiants.");
             }
 
-            NoeudEtudiant temp = liste.GetHead();
+            NoeudEtudiant temp = liste.getHead();
 
             while (temp != null)
             {
-                somme += temp.GetData().getNoteFinal();
-                temp = temp.GetNext();
+                somme += temp.getData().getNoteFinal();
+                temp = temp.getNext();
             }
 
             return somme / count;
@@ -83,7 +83,7 @@ namespace DSA_Projet_VérificateurDeNotesÉtudiants
 
         public double[] FindMinMax()
         {
-            if (liste.GetCount() == 0)
+            if (liste.getCount() == 0)
             {
                 throw new ArgumentException("Il n'y a pas d'étudiants.");
             }
@@ -91,11 +91,11 @@ namespace DSA_Projet_VérificateurDeNotesÉtudiants
             double min = double.MaxValue;
             double max = double.MinValue;
 
-            NoeudEtudiant temp = liste.GetHead();
+            NoeudEtudiant temp = liste.getHead();
 
             while (temp != null)
             {
-                double note = temp.GetData().getNoteFinal();
+                double note = temp.getData().getNoteFinal();
 
                 if (note < min)
                 {
@@ -107,7 +107,7 @@ namespace DSA_Projet_VérificateurDeNotesÉtudiants
                     max = note;
                 }
 
-                temp = temp.GetNext();
+                temp = temp.getNext();
             }
 
             return new double[] { min, max };

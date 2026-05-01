@@ -5,8 +5,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSA_Projet_VérificateurDeNotesÉtudiants
-{
+namespace DSA_Projet_VérificateurDeNotesÉtudiants;
+
     public class ListeDoubleEtudiants
     {
         // pointeur vers la premier noeud
@@ -23,13 +23,13 @@ namespace DSA_Projet_VérificateurDeNotesÉtudiants
         }
 
         // nombre d'étudiants dans la liste
-        public NoeudEtudiant GetHead()
+        public NoeudEtudiant getHead()
         {
             return head;
         }
 
         // retourne le nombre d'étudiants
-        public int GetCount() 
+        public int getCount() 
         {
             return count;
         }
@@ -74,13 +74,12 @@ namespace DSA_Projet_VérificateurDeNotesÉtudiants
             }
             Console.WriteLine("Nombre d'étudiants:" + count);
 
-            //while loop
+            
             while (temp != null)
             {
-                Console.WriteLine(temp.GetData());
-                temp =  temp.GetNext();
+                Console.WriteLine(temp.getData());
+                temp =  temp.getNext();
             }
-
 
 
         }
@@ -93,12 +92,12 @@ namespace DSA_Projet_VérificateurDeNotesÉtudiants
             
             while (temp != null)
             {
-                if (temp.GetData().GetId() == id) // checker pout l'étudiant
+                if (temp.getData().getId() == id) // checker pour l'étudiant
                 {
                     return temp;
                 }
 
-                temp = temp.GetNext();
+                temp = temp.getNext();
              
             }
             return null;
@@ -124,27 +123,25 @@ namespace DSA_Projet_VérificateurDeNotesÉtudiants
 
             else if (noeudASupprimer == head) // suprimmer 1er noeud
             {
-                head = head.GetNext();
+                head = head.getNext();
                 head.SetPrevious(null);
 
             }
             else if (noeudASupprimer == tail)    //supprimer dernier noeud
             {
-                tail = tail.GetNext();
+                tail = tail.getNext();
                 tail.SetPrevious(null);
             } 
             else      // récupérer les neouds
             {
-                NoeudEtudiant precendant =  noeudASupprimer.GetPrevious();
-                NoeudEtudiant suivant = noeudASupprimer.GetNext();  
+                NoeudEtudiant precendant =  noeudASupprimer.getPrevious();
+                NoeudEtudiant suivant = noeudASupprimer.getNext();  
             }
 
             count--;
             return true;
-
         }
 
     }
-}
-   
+
 

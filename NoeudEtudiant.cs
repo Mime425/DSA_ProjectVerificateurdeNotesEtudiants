@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSA_Projet_VérificateurDeNotesÉtudiants
-{
+namespace DSA_Projet_VérificateurDeNotesÉtudiants;
+
     public class NoeudEtudiant
     {
         // attributs
@@ -22,24 +22,24 @@ namespace DSA_Projet_VérificateurDeNotesÉtudiants
 
         }
         //getters 
-        public Etudiant GetData() 
+        public Etudiant getData() 
         {
             return data;
         }
 
-        public NoeudEtudiant GetNext() 
+        public NoeudEtudiant getNext() 
         {
             return next;
         }
 
-        public NoeudEtudiant GetPrevious()
+        public NoeudEtudiant getPrevious()
         {
             return previous;
         }
 
        //Setters
        public void SetData(Etudiant data)
-            {
+        {
             this.data = data;
         }
 
@@ -55,4 +55,4 @@ namespace DSA_Projet_VérificateurDeNotesÉtudiants
 
 
     }
-}
+

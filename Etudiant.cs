@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSA_Projet_VérificateurDeNotesÉtudiants
-{
+namespace DSA_Projet_VérificateurDeNotesÉtudiants;
+
     //les attributs
     public class Etudiant
     {
@@ -15,32 +15,39 @@ namespace DSA_Projet_VérificateurDeNotesÉtudiants
         private double noteMath;
         private double noteFrancais;
         private double noteAnglais;
+        private string matiere;
+        private double note1;
+        private double note2;
+        private double note3;
         private double noteFinal;
 
-        public Etudiant()
-        {
-            id = 0;
-            prenom = "";
-            nom = "";
-            noteMath = 0;
-            noteFrancais = 0;
-            noteAnglais = 0;
-            noteFinal = 0;
+    public Etudiant()
+    {
+        id = 0;
+        prenom = "";
+        nom = "";
+        matiere = "";
+        note1 = 0;
+        note2 = 0;
+        note3 = 0;
+        noteFinal = 0;
+    }
 
-        }
-
-        public Etudiant(int id, string prenom, string nom, double noteMath, double noteFrancais, double noteAnglais, double noteFinal)
+    public Etudiant(int id, string prenom, string nom, string matiere, double note1, double note2, double note3, double noteFinal)
         {
             this.id = id;
             this.prenom = prenom;
             this.nom = nom;
-            this.noteMath = noteMath;
-            this.noteFrancais = noteFrancais;
-            this.noteAnglais = noteAnglais;
+            this.matiere = matiere;
+            this.note1 = note1;
+            this.note2 = note2;
+            this.note3 = note3;
             this.noteFinal = noteFinal;
         }
 
-        public int GetId()
+    //Getters
+
+        public int getId()
         {
             return id;
         }
@@ -53,74 +60,87 @@ namespace DSA_Projet_VérificateurDeNotesÉtudiants
             return nom;
         }
 
-        public double getNoteMath()
+        public string getMatiere()
         {
-            return noteMath;
-        }
-        public double getNoteFrancais() 
-        {
-            return noteFrancais;
-        }
-        public double getAnglais() 
-        {
-            return noteAnglais;
+            return matiere;
         }
 
-      
+        public double getNote1() 
+        {
+            return note1;
+        }
+        public double getNote2() 
+        {
+            return note2;
+        }
+    public double getNote3()
+    {
+        return note3;
+    }
 
-        //Setters
-        public void SetId(int id)
+    public double getNoteFinal()
+        { 
+            return noteFinal; 
+        }
+
+
+    //Setters
+    public void SetId(int id)
+    {
+        if (id >= 0)
         {
             this.id = id;
         }
+    }
 
-        public void SetFirstName(string firstName)
+    public void SetPrenom(string prenom)
+    {
+        this.prenom = prenom;
+    }
+
+    public void SetNom(string nom)
+    {
+        this.nom = nom;
+    }
+
+    public void SetMatiere(string matiere)
+    {
+        this.matiere = matiere;
+    }
+
+    public void SetNote1(double note1)
+    {
+        if (note1 >= 0 && note1 <= 100)
         {
-            this.prenom = firstName;
+            this.note1 = note1;
         }
+    }
 
-        public void SetLastName(string lastName)
+    public void SetNote2(double note2)
+    {
+        if (note2 >= 0 && note2 <= 100)
         {
-            this.nom = lastName;
+            this.note2 = note2;
         }
+    }
 
-        public void SetNoteMath(double noteMath)
+    public void SetNote3(double note3)
+    {
+        if (note3 >= 0 && note3 <= 100)
         {
-            if (noteMath >= 0 && noteMath <= 100)
-            {
-                this.noteMath = noteMath;
-            }
+            this.note3 = note3;
         }
+    }
 
-        public void SetNoteFrancais(double noteFrancais)
-        {
-            if (noteFrancais >= 0 && noteFrancais <= 100)
-            {
-                this.noteFrancais = noteFrancais;
-            }
-        }
+    public void CalculNoteFinal()
+    {
+        noteFinal = (note1 * 0.2) + (note2 * 0.3) + (note3 * 0.5);
+    }
 
-        public void SetNoteAnglais(double noteAnglais)
-        {
-            if (noteAnglais >= 0 && noteAnglais <= 100)
-            {
-                this.noteAnglais = noteAnglais;
-            }
-        }
-
-        //calcul note final
-        public void CalculNoteFinal()
-        {
-            noteFinal = (noteMath + noteFrancais + noteAnglais) / 3.0;
-
-        }
-
-        // Override à toString
-        public override string ToString()
-        {
-            return "id: " + id + " Prenom: " + prenom + " Note 1: " + noteMath  + " Note 2: " + noteFrancais +
-                   " Note 3: " + noteAnglais +
-                   " Note final: " + noteFinal;
-        }
+    public override string ToString()
+    {
+        return "id: " + id + " Prenom: " + prenom + " Nom: " + nom + "Matière:" + matiere +
+               " Note 1: " + note1 + " Note 2: " + note2 +
+               " Note 3: " + note3 + " Note final: " + noteFinal;
     }
 }

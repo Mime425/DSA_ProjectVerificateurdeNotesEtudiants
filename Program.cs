@@ -1,5 +1,5 @@
-﻿namespace DSA_Projet_VérificateurDeNotesÉtudiants
-{
+﻿namespace DSA_Projet_VérificateurDeNotesÉtudiants;
+
     internal class Program
     {
         public static void Main(string[] args)
@@ -108,4 +108,3 @@
         }
 
     }
-}

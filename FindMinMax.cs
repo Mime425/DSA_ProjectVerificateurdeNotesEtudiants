@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DSA_Projet_VérificateurDeNotesÉtudiants
-{
+namespace DSA_Projet_VérificateurDeNotesÉtudiants;
+
     public static class FindMinMax
     {
         // pré-condition : le tableau n'est pas vide
@@ -36,4 +36,3 @@ namespace DSA_Projet_VérificateurDeNotesÉtudiants
             return new double[] { minValue, maxValue };
         }
     }
-}
