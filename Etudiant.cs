@@ -12,14 +12,15 @@ namespace DSA_Projet_VérificateurDeNotesÉtudiants;
         private int id;
         private string prenom;
         private string nom;
-        private double noteMath;
-        private double noteFrancais;
-        private double noteAnglais;
         private string matiere;
         private double note1;
         private double note2;
         private double note3;
         private double noteFinal;
+    private double pondération1;
+    private double pondération2;
+    private double pondération3;
+
 
     public Etudiant()
     {
@@ -31,6 +32,9 @@ namespace DSA_Projet_VérificateurDeNotesÉtudiants;
         note2 = 0;
         note3 = 0;
         noteFinal = 0;
+        pondération1 = 0;
+        pondération2 = 0;
+        pondération3 = 0;
     }
 
     public Etudiant(int id, string prenom, string nom, string matiere, double note1, double note2, double note3, double noteFinal)
@@ -82,7 +86,19 @@ namespace DSA_Projet_VérificateurDeNotesÉtudiants;
         { 
             return noteFinal; 
         }
+    public double getPondération1()
+    {
+        return pondération1;
+    }
 
+    public double getPondération2()
+    {
+        return pondération2;
+    }
+    public double getPondération3()
+    {
+        return pondération3;
+    }
 
     //Setters
     public void SetId(int id)
@@ -132,10 +148,25 @@ namespace DSA_Projet_VérificateurDeNotesÉtudiants;
         }
     }
 
+    public void setPonderation(double p1, double p2, double p3)
+    {
+        if (Math.Abs((p1 + p2 + p3) - 1) < 0.0001)
+        {
+            pondération1 = p1;
+            pondération2 = p2;
+            pondération3 = p3;
+        }
+        else
+        {
+            throw new ArgumentException("Erreur. Les pondérations doivent totaliser 1.");
+        }
+    }
+
     public void CalculNoteFinal()
     {
-        noteFinal = (note1 * 0.2) + (note2 * 0.3) + (note3 * 0.5);
+        noteFinal = (note1 * pondération1) + (note2 * pondération2) + (note3 * pondération3);
     }
+
 
     public override string ToString()
     {

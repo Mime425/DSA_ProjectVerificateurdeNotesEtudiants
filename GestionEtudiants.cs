@@ -112,6 +112,77 @@ namespace DSA_Projet_VérificateurDeNotesÉtudiants
 
             return new double[] { min, max };
         }
+        ////Conversion de la liste double Etudiant en tableau (array)
+        //public Etudiant[] ConversionListe()
+        //{
+        //    Etudiant [] tableauEtutudiants = new Etudiant[liste.GetCount()];
+        //    NoeudEtudiant temp = ListeDoubleEtudiants.GetHead();
+        //int i = 0;
+
+        //while (temp != null)
+        //    {
+        //        tableauEtudiants[i] = temp.getData();
+        //        i++;
+        //        temp = temp.getNext();  
+        //    }
+        //return tableauEtutudiants;
+        
+        //}
+
+        //// partition Quick Sort comme Tutorials Point
+        //private static int Partition(Etudiant[] a, int left, int right, int pivot)
+        //{
+        //    int leftPointer = left - 1;
+        //    int rightPointer = right;
+
+        //    while (true)
+        //    {
+        //        while (Etudiant[++leftPointer] < pivot) { }
+
+        //        while (rightPointer > 0 && Etudiant[--rightPointer] > pivot) { }
+
+        //        if (leftPointer >= rightPointer)
+        //        {
+        //            break;
+
+        //        }
+        //        else
+        //        {
+        //            Swap(a, leftPointer, rightPointer);
+        //        }
+        //    }
+        //    Swap(a, leftPointer, right);
+        //    return leftPointer;
+
+        //}
+
+        ////QuickSort
+
+        //public static void QuickSort(int[] a, int left, int right)
+        //{
+        //    if (right - left <= 0)
+        //    {
+        //        return;
+        //    }
+        //    else
+        //    {
+        //        int pivot = a[right];
+        //        int partitionPoint = Partition(a, left, right, pivot);
+
+        //        QuickSort(a, left, partitionPoint - 1);
+        //        QuickSort(a, partitionPoint + 1, right);
+
+        //    }
+        //}
+
+        ////le swap
+        //public static void Swap(Etudiant[] a, int num1, int num2)
+        //{
+        //    Etudiant temp = a[num1];
+        //    a[num1] = a[num2];
+        //    a[num2] = temp;
+
+        //}
     }
 }
 
