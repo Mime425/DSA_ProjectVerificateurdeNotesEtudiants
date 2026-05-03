@@ -9,8 +9,8 @@
 
             while (!quitter)
             {
-                Console.WriteLine("Menu:");
-                Console.WriteLine("1. Ajouter un étudiant");
+                Console.WriteLine("----Menu----"); 
+                Console.WriteLine("1. Ajouter un étudiant"); 
                 Console.WriteLine("2. Afficher les étudiants");
                 Console.WriteLine("3. Rechercher un étudiant par ID");
                 Console.WriteLine("4. Mettre à jour les notes");
@@ -20,7 +20,7 @@
                 Console.WriteLine("8. Quitter");
                 Console.Write("Choisissez une option: ");
 
-                string choix = Console.ReadLine();
+                string choix = Console.ReadLine();  
 
                 switch (choix)
                 {
@@ -37,12 +37,14 @@
                             e.SetPrenom(Console.ReadLine());
                             Console.Write("Entrez le nom de l'étudiant: ");
                             e.SetNom(Console.ReadLine());
-                            Console.Write("Entrez la note 1 de l'étudiant: ");
-                            e.SetNoteMath(double.Parse(Console.ReadLine()));
+                            Console.Write("Entrez la matière: ");
+                            e.SetMatiere(Console.ReadLine());
+                           Console.Write("Entrez la note 1 de l'étudiant: ");
+                            e.SetNote1(double.Parse(Console.ReadLine()));
                             Console.Write("Entrez la note 2 de l'étudiant: ");
-                            e.SetNoteFrancais(double.Parse(Console.ReadLine()));
+                            e.SetNote2(double.Parse(Console.ReadLine()));
                             Console.Write("Entrez la note 3 de l'étudiant: ");
-                            e.SetAnglais(double.Parse(Console.ReadLine()));
+                            e.SetNote3(double.Parse(Console.ReadLine()));
                             e.CalculNoteFinal();
                             gestion.ajouterEtudiant(e);
                             Console.WriteLine("Étudiant ajouté avec succès.");
@@ -64,7 +66,7 @@
                         {
                             Console.Write("Entrez l'ID de l'étudiant à rechercher: ");
                             int id = int.Parse(Console.ReadLine());
-                            Etudiant eCase3 = gestion.LinearSearchID(id);
+                            Etudiant eCase3 = gestion.getEtudiantById(id);
 
 
                             if (eCase3 != null)
@@ -85,24 +87,77 @@
                         break;
 
                     case "4":
-                        // Code pour trier les étudiants par ID
-                        gestion.QuickSortByID();
-                        Console.WriteLine("Étudiants triés par ID.");
+                    // Code pour trier les étudiants par ID
+                    try
+                    {
+                        Console.WriteLine("Entrez l'ID de l'étudiant pour porter une modification: ");
+                        int id = int.Parse(Console.ReadLine());
+                        Etudiant e = gestion.getEtudiantById(id);
+
+                        if (e != null)
+                        {
+                            Console.WriteLine("Entrez la nouvelle note1 :");
+                            e.SetNote1(double.Parse(Console.ReadLine()));
+                            Console.WriteLine("Entrez la nouvelle note2 :");
+                            e.SetNote1(double.Parse(Console.ReadLine()));
+                            Console.WriteLine("Entrez la nouvelle note3 :");
+                            e.SetNote1(double.Parse(Console.ReadLine()));
+
+                            e.CalculNoteFinal();
+                            Console.WriteLine("Les notes ont été modifiées");
+                        }
+                        else
+                        {
+                            Console.WriteLine("L'étudiant n'est pas trouvé");
+                        }
+                    }
+                    catch 
+                    {
+                        Console.WriteLine("Entrée invalide");
+                    }
                         break;
+                        
 
                     case "5":
-                        // Code pour trouver et afficher la note minimale et maximale
-                        //pas fini
-                        break;
+                    try
+                    {
+                        Console.WriteLine("Entrez le ID de l'étudiant que vous voulez supprimer: ");
+                        int id = int.Parse(Console.ReadLine());
+
+                        gestion.supprimerEtudiant(id);
+                    }
+                    catch 
+                    {
+                        Console.WriteLine("Le ID d'étudiant n'est pas valid");
+                    } 
+                    break;
 
                     case "6":
-                        quitter = true;
-                        Console.WriteLine("Quitter le programme. Au revoir!");
-                        break;
+                    // Code pour trouver et afficher la note minimale et maximale
+                    try
+                    {
+                        double[] result = gestion.FindMinMax();
 
-                    default:
+                        Console.WriteLine("Note minimale est: " + result[0]);
+                        Console.WriteLine("Note minimale est: " + result[1]);
+
+                    }
+                    catch
+                    {
+                        Console.WriteLine("On ne peut pas calculer le minimum et maximum");
+                    }
+                    break;
+
+                case "7":
+                    quitter = true;
+                    Console.WriteLine("Quitter le programme. Au revoir!");
+                    break;
+
+                default:
                         Console.WriteLine("Option invalide, veuillez réessayer.");
-                        break;
+                    break;
+
+
                 }
             }
         }
