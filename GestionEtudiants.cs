@@ -63,22 +63,22 @@ namespace DSA_Projet_VérificateurDeNotesÉtudiants
         public double CalculMoyenneClasse()
         {
             double somme = 0;
-            int count = liste.getCount();
+            double moyenne = 0;
 
-            if (count == 0)
+            if (liste.getCount() == 0)
             {
                 throw new ArgumentException("Il n'y a pas d'étudiants.");
             }
 
-            NoeudEtudiant temp = liste.getHead();
+            NoeudEtudiant noeud = liste.getHead();
 
-            while (temp != null)
+            while (noeud != null)
             {
-                somme += temp.getData().getNoteFinal();
-                temp = temp.getNext();
+                somme += noeud.getData().getNoteFinal();
+                noeud = noeud.getNext();
             }
 
-            return somme / count;
+            return somme / moyenne;
         }
         //Recherche linéaire par ID, pour trouver les enregistrement
         //spécifiques d'étudiants
