@@ -80,6 +80,24 @@ namespace DSA_Projet_VérificateurDeNotesÉtudiants
 
             return somme / count;
         }
+        //Recherche linéaire par ID, pour trouver les enregistrement
+        //spécifiques d'étudiants
+        //On va allé de noeud à noeud jusqu'à ce qu'on arrive au bon ID
+        public Etudiant RechercheLineaireParID(int id) 
+        {
+            NoeudEtudiant temp = liste.getHead();  //commence par le 1er noeud de la liste
+
+            // parcourir la liste pour que le var temp n'est as null
+            while (temp != null)
+            {
+                if (temp.getData().getId() == id)
+                {
+                    return temp.getData();
+                }
+                temp = temp.getNext();
+            }
+            return null;
+        }
 
         public double[] FindMinMax()
         {

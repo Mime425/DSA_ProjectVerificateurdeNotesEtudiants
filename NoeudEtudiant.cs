@@ -38,17 +38,17 @@ namespace DSA_Projet_VérificateurDeNotesÉtudiants;
         }
 
        //Setters
-       public void SetData(Etudiant data)
+       public void setData(Etudiant data)
         {
             this.data = data;
         }
 
-        public void SetNext(NoeudEtudiant next)
+        public void setNext(NoeudEtudiant next)
         {
             this.next = next;
         }
 
-        public void SetPrevious(NoeudEtudiant previous)
+        public void setPrevious(NoeudEtudiant previous)
         {
             this.previous = previous;
         }

@@ -52,8 +52,8 @@ namespace DSA_Projet_VérificateurDeNotesÉtudiants;
             {
                
 
-                tail.SetNext(nouveau);
-                nouveau.SetPrevious(tail);
+                tail.setNext(nouveau);
+                nouveau.setPrevious(tail);
                 tail = nouveau;
             }
             count++;  // augmenter nb d'étudianta
@@ -124,13 +124,13 @@ namespace DSA_Projet_VérificateurDeNotesÉtudiants;
             else if (noeudASupprimer == head) // suprimmer 1er noeud
             {
                 head = head.getNext();
-                head.SetPrevious(null);
+                head.setPrevious(null);
 
             }
             else if (noeudASupprimer == tail)    //supprimer dernier noeud
             {
                 tail = tail.getNext();
-                tail.SetPrevious(null);
+                tail.setPrevious(null);
             } 
             else      // récupérer les neouds
             {

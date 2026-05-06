@@ -32,25 +32,25 @@
                     {
                         Etudiant e = new Etudiant();
                         Console.Write("Entrez l'ID de l'étudiant: ");
-                        e.SetId(int.Parse(Console.ReadLine()));
+                        e.setId(int.Parse(Console.ReadLine()));
 
                         Console.Write("Entrez le prénom de l'étudiant: ");
-                        e.SetPrenom(Console.ReadLine());
+                        e.setPrenom(Console.ReadLine());
 
                         Console.Write("Entrez le nom de l'étudiant: ");
-                        e.SetNom(Console.ReadLine());
+                        e.setNom(Console.ReadLine());
 
                         Console.Write("Entrez le nom de cours: ");
-                        e.SetMatiere(Console.ReadLine());
+                        e.setMatiere(Console.ReadLine());
 
                         Console.Write("Entrez la note 1 de l'étudiant: ");
-                        e.SetNote1(double.Parse(Console.ReadLine()));
+                        e.setNote1(double.Parse(Console.ReadLine()));
 
                         Console.Write("Entrez la note 2 de l'étudiant: ");
-                        e.SetNote2(double.Parse(Console.ReadLine()));
+                        e.setNote2(double.Parse(Console.ReadLine()));
 
                         Console.Write("Entrez la note 3 de l'étudiant: ");
-                        e.SetNote3(double.Parse(Console.ReadLine()));
+                        e.setNote3(double.Parse(Console.ReadLine()));
 
                         Console.Write("Entrez la pondération de la note 1: ");
                         double p1 = double.Parse(Console.ReadLine());
@@ -84,7 +84,7 @@
                         {
                             Console.Write("Entrez l'ID de l'étudiant à rechercher: ");
                             int id = int.Parse(Console.ReadLine());
-                            Etudiant eCase3 = gestion.getEtudiantById(id);
+                            Etudiant eCase3 = gestion.RechercheLineaireParID(id);
 
 
                             if (eCase3 != null)
@@ -115,11 +115,11 @@
                         if (e != null)
                         {
                             Console.WriteLine("Entrez la nouvelle note1 :");
-                            e.SetNote1(double.Parse(Console.ReadLine()));
+                            e.setNote1(double.Parse(Console.ReadLine()));
                             Console.WriteLine("Entrez la nouvelle note2 :");
-                            e.SetNote1(double.Parse(Console.ReadLine()));
+                            e.setNote1(double.Parse(Console.ReadLine()));
                             Console.WriteLine("Entrez la nouvelle note3 :");
-                            e.SetNote1(double.Parse(Console.ReadLine()));
+                            e.setNote1(double.Parse(Console.ReadLine()));
 
                             e.CalculNoteFinal();
                             Console.WriteLine("Les notes ont été modifiées");

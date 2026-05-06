@@ -101,7 +101,7 @@ namespace DSA_Projet_VérificateurDeNotesÉtudiants;
     }
 
     //Setters
-    public void SetId(int id)
+    public void setId(int id)
     {
         if (id >= 0)
         {
@@ -109,22 +109,22 @@ namespace DSA_Projet_VérificateurDeNotesÉtudiants;
         }
     }
 
-    public void SetPrenom(string prenom)
+    public void setPrenom(string prenom)
     {
         this.prenom = prenom;
     }
 
-    public void SetNom(string nom)
+    public void setNom(string nom)
     {
         this.nom = nom;
     }
 
-    public void SetMatiere(string matiere)
+    public void setMatiere(string matiere)
     {
         this.matiere = matiere;
     }
 
-    public void SetNote1(double note1)
+    public void setNote1(double note1)
     {
         if (note1 >= 0 && note1 <= 100)
         {
@@ -132,7 +132,7 @@ namespace DSA_Projet_VérificateurDeNotesÉtudiants;
         }
     }
 
-    public void SetNote2(double note2)
+    public void setNote2(double note2)
     {
         if (note2 >= 0 && note2 <= 100)
         {
@@ -140,7 +140,7 @@ namespace DSA_Projet_VérificateurDeNotesÉtudiants;
         }
     }
 
-    public void SetNote3(double note3)
+    public void setNote3(double note3)
     {
         if (note3 >= 0 && note3 <= 100)
         {
